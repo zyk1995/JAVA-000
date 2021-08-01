@@ -23,18 +23,16 @@ CREATE TABLE IF NOT EXISTS `zyk_stores` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 
--- # 商品表：id、名称、描述、价格、重量、所属店铺id、所属店铺名称、商品状态
+-- # 商品表：id、名称、描述、价格、所属店铺id、所属店铺名称、商品状态
 CREATE TABLE IF NOT EXISTS `zyk_goods` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(16) NOT NULL,
     `description` varchar(1024) NOT NULL,
     `price` int(11) NOT NULL,
-    `weight` int(11) NOT NULL,
     `store_id` int(11) NOT NULL,
     `store_name` varchar(16) NOT NULL,
     `status` int(1) NOT NULL,
     PRIMARY KEY (`id`),
-    foreign key (store_id) references stores(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 -- # 订单表:id、用户id、商品列表、订单状态、物流状态、总价、生成时间、更新时间
